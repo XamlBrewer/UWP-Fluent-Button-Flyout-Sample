@@ -95,7 +95,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Features\Continuity\CircularToggleButton.cs" />
+    <Compile Include="Features\Continuity\CompositionExtensions.Implicit.cs" />
+    <Compile Include="Features\Continuity\Enums.cs" />
+    <Compile Include="Features\Continuity\UtilExtensions.cs" />
     <Compile Include="Mvvm\BindableBase.cs" />
+    <Compile Include="Mvvm\BooleanToValueConverter.cs" />
     <Compile Include="Mvvm\DelegateCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Activation\Activation.cs" />
@@ -132,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Features\Continuity\Continuity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Services\Icons\Icons.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

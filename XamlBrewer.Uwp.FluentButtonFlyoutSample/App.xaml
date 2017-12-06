@@ -21,7 +21,7 @@
                 <ResourceDictionary Source="Services/Icons/Icons.xaml" />
                 <ResourceDictionary Source="Services/Theming/Theme.xaml" />
                 <!-- Custom Styles -->
-                <!--<ResourceDictionary Source="Services/Dialogs/ContentDialog.xaml" />-->
+                <ResourceDictionary Source="Features/Continuity/Continuity.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

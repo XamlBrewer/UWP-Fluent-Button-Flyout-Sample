@@ -4,26 +4,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:mvvm="using:Mvvm"
+      xmlns:continuity="using:Continuity.Controls"
       mc:Ignorable="d"
       Foreground="{StaticResource PageForegroundBrush}">
 
     <Grid Padding="0 32 0 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="74" />
-            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!-- Background -->
         <Grid.Background>
             <ImageBrush ImageSource="ms-appx:///Assets/Road.jpg"
                         Stretch="UniformToFill"
                         AlignmentX="Center"
                         AlignmentY="Center" />
         </Grid.Background>
-
+        <!-- Title Bar -->
         <TextBlock Foreground="{StaticResource PageTitleBrush}"
                    FontSize="48"
                    FontWeight="Light"
@@ -42,5 +43,52 @@
               Width="62"
               Margin="0 12 12 0"
               Stretch="Uniform" />
+
+        <!-- Content -->
+        <Grid Padding="20"
+              Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="0">
+                <Button Click="Button_Click">Open</Button>
+                <Button Click="Button_Click_1">Close</Button>
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <continuity:CircularToggleButton x:Name="TheToggle"
+                                                 Background="LightSlateGray"
+                                                 CheckedBackground="Red">
+                    <continuity:CircularToggleButton.CheckedContent>
+                        <ContentControl Margin="3"
+                                        Style="{StaticResource IconCloseStyle}" />
+                    </continuity:CircularToggleButton.CheckedContent>
+                    <ContentControl Style="{StaticResource IconMoreStyle}" />
+                </continuity:CircularToggleButton>
+
+                <Popup x:Name="ThePopup"
+                       IsOpen="{Binding IsChecked, ElementName=TheToggle, Mode=TwoWay}"
+                       IsLightDismissEnabled="False"
+                       HorizontalOffset="{Binding ActualWidth, ElementName=TheToggle}"
+                       VerticalOffset="-20">
+                    <Grid x:Name="TheGrid"
+                          Visibility="{Binding IsOpen, ElementName=ThePopup}"
+                          Margin="0 0 0 0"
+                          VerticalAlignment="Top"
+                          HorizontalAlignment="Left"
+                          Width="200"
+                          Height="200"
+                          Background="White"
+                          BorderThickness="1"
+                          BorderBrush="Red"
+                          CornerRadius="20"
+                          Padding="20">
+                        <TextBlock>This is a test</TextBlock>
+                    </Grid>
+                </Popup>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>
