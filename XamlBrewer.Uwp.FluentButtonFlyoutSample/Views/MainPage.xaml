@@ -19,11 +19,13 @@
 
         <!-- Background -->
         <Grid.Background>
-            <ImageBrush ImageSource="ms-appx:///Assets/Road.jpg"
+            <ImageBrush ImageSource="ms-appx:///Assets/paperclips.jpg"
                         Stretch="UniformToFill"
+                        Opacity=".1"
                         AlignmentX="Center"
                         AlignmentY="Center" />
         </Grid.Background>
+
         <!-- Title Bar -->
         <TextBlock Foreground="{StaticResource PageTitleBrush}"
                    FontSize="48"
@@ -50,23 +52,31 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal"
-                        Grid.Row="0">
-                <Button Click="Button_Click">Open</Button>
-                <Button Click="Button_Click_1">Close</Button>
-            </StackPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+
             <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <!-- Toggle Button -->
                 <continuity:CircularToggleButton x:Name="TheToggle"
                                                  Background="LightSlateGray"
-                                                 CheckedBackground="Red">
+                                                 CheckedBackground="{StaticResource HighlightBrush}"
+                                                 CheckedCornerRadius="6 0 0 6"
+                                                 FontFamily="Segoe UI">
                     <continuity:CircularToggleButton.CheckedContent>
                         <ContentControl Margin="3"
                                         Style="{StaticResource IconCloseStyle}" />
                     </continuity:CircularToggleButton.CheckedContent>
                     <ContentControl Style="{StaticResource IconMoreStyle}" />
                 </continuity:CircularToggleButton>
-
+                <!-- 'Flyout' -->
                 <Popup x:Name="ThePopup"
                        IsOpen="{Binding IsChecked, ElementName=TheToggle, Mode=TwoWay}"
                        IsLightDismissEnabled="False"
@@ -77,18 +87,75 @@
                           Margin="0 0 0 0"
                           VerticalAlignment="Top"
                           HorizontalAlignment="Left"
-                          Width="200"
-                          Height="200"
-                          Background="White"
-                          BorderThickness="1"
-                          BorderBrush="Red"
-                          CornerRadius="20"
+                          Width="300"
+                          Height="400"
+                          Background="Azure"
+                          BorderThickness="2"
+                          BorderBrush="{StaticResource HighlightBrush}"
+                          CornerRadius="6"
                           Padding="20">
-                        <TextBlock>This is a test</TextBlock>
+                        <TextBlock TextWrapping="Wrap"
+                                   FontWeight="SemiBold"><Run>Hi, I see that you're trying to open a Flyout.</Run><LineBreak /><LineBreak /><Run>May I suggest you do this in a Fluent way?</Run></TextBlock>
+                        <Image Height="240"
+                               Stretch="Uniform"
+                               VerticalAlignment="Bottom"
+                               HorizontalAlignment="Right"
+                               Source="ms-appx:///Assets/clippy.png" />
                     </Grid>
                 </Popup>
+                <!-- Filler -->
+                <Grid Background="{StaticResource PanelBackgroundBrush}"
+                      CornerRadius="6"
+                      Margin="60 0 0 0">
+                    <TextBlock Text="&lt;--  This is the button you were looking for."
+                               VerticalAlignment="Center"
+                               Margin="20 0 0 0" />
+                </Grid>
+                <!-- Covered Panel -->
+                <StackPanel Grid.Row="1"
+                            Background="{StaticResource PanelBackgroundBrush}"
+                            CornerRadius="6"
+                            Padding="20"
+                            Margin="0 20 0 0">
+                    <TextBlock TextWrapping="Wrap"
+                               Margin="0 0 0 20">
+                        <Run FontWeight="SemiBold">Covered Panel</Run>
+                        <LineBreak /><LineBreak />
+                        <Run>Kindly ignore this panel.</Run>
+                        <LineBreak />
+                        <Run>It's only here to prove that the 'Flyout' is a real PopUp.</Run>
+                    </TextBlock>
+                    <Slider Header="Useless Slider" />
+                </StackPanel>
             </Grid>
 
+            <!-- Configuration Panel -->
+            <Grid Grid.Row="1"
+                  Grid.Column="1"
+                  Background="{StaticResource PanelBackgroundBrush}"
+                  CornerRadius="6"
+                  Padding="20"
+                  Margin="20 0 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Configuration and Testing"
+                           FontWeight="SemiBold"
+                           Margin="0 0 0 20" />
+                <Button Click="OpenButton_Click"
+                        Margin="0 0 0 20"
+                        Grid.Row="1">Open</Button>
+                <Button Click="CloseButton_Click"
+                        Margin="0 0 0 20"
+                        Grid.Row="2"
+                        FontFamily="Segoe UI">Close</Button>
+                <CheckBox Checked="CheckBox_Checked"
+                          Unchecked="CheckBox_Unchecked"
+                          Grid.Row="3">Light Dismissed</CheckBox>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

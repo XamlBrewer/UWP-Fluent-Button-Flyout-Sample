@@ -5,11 +5,10 @@
     <x:Double x:Key="ContentDialogMaxWidth">800</x:Double>
 
     <!-- Theme Resources -->
+    <!-- Palette https://coolors.co/333333-ffb86f-f5ee9e-e1ce7a-d84727 -->
 
-    <!-- Palette https://coolors.co/343633-77878b-eae0cc-cec288-e8b9ab -->
-    
     <!-- Default Accent Color -->
-    <Color x:Key="DefaultAccentColor">#FF77878b</Color>
+    <Color x:Key="DefaultAccentColor">#FFd84727</Color>
 
     <!-- General Purpose -->
     <SolidColorBrush x:Key="TenPercentDarkerBrush"
@@ -19,7 +18,7 @@
                      Color="White"
                      Opacity=".1" />
     <SolidColorBrush x:Key="HighlightBrush"
-                     Color="#FF77878b" />
+                     Color="#FFd84727" />
 
     <!-- Header -->
     <SolidColorBrush x:Key="TitlebarBackgroundBrush"
@@ -33,18 +32,20 @@
 
     <!-- Splitview Pane -->
     <SolidColorBrush x:Key="SplitViewBackgroundBrush"
-                     Color="#ff343434" />
+                     Color="#ff333333" />
     <SolidColorBrush x:Key="SplitViewForegroundBrush"
                      Color="#ffcec288" />
     <SolidColorBrush x:Key="HamburgerForegroundBrush"
-                     Color="#ffe8b9ab" />
+                     Color="#FFd84727" />
 
     <!-- Splitview Content -->
     <Color x:Key="PageBackgroundColor">#ffebf5ee</Color>
     <SolidColorBrush x:Key="PageBackgroundBrush"
-                     Color="#ffeae0cc" />
+                     Color="#ffe1ce7a" />
     <SolidColorBrush x:Key="PageTitleBrush"
-                     Color="#ffcec288" />
+                     Color="#ff721817" />
     <SolidColorBrush x:Key="PageForegroundBrush"
-                     Color="#ff343434" />
+                     Color="#ff333333" />
+    <SolidColorBrush x:Key="PanelBackgroundBrush"
+                     Color="#fff5ee9e" />
 </ResourceDictionary>

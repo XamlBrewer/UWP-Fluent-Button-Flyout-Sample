@@ -10,15 +10,6 @@ namespace Mvvm.Services
     {
         public async Task LaunchAsync(LaunchActivatedEventArgs e)
         {
-            // Emergency procedure to clear all Local Settings.
-            // var containerSettings = (ApplicationDataContainerSettings)ApplicationData.Current.LocalSettings.Values;
-            // var keys = containerSettings.Keys;
-            // foreach (var key in keys)
-            // {
-            //     Debug.WriteLine(key);
-            //     ApplicationData.Current.LocalSettings.Values.Remove(key);
-            // }
-
             // Custom pre-launch service calls.
             await PreLaunchAsync(e);
 

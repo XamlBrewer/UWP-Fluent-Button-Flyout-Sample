@@ -1,11 +1,10 @@
-﻿using Windows.UI;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 
 namespace Continuity.Controls
 {
-	public sealed class CircularToggleButton : ToggleButton
+    public sealed class CircularToggleButton : ToggleButton
 	{
 		public object CheckedContent
 		{
