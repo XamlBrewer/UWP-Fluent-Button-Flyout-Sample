@@ -10,10 +10,10 @@ namespace XamlBrewer.Uwp.FluentButtonFlyoutSample
         {
             InitializeComponent();
             TheGrid.EnableFluidVisibilityAnimation(
-                centerPoint: new Vector3(0.0f, 40.0f, 0.0f), 
-                showFromScale: 0.2f, 
-                hideToScale: 0.2f, 
-                showDuration: 400, 
+                centerPoint: new Vector3(0.0f, 40.0f, 0.0f),
+                showFromScale: 0.2f,
+                hideToScale: 0.2f,
+                showDuration: 400,
                 hideDuration: 400);
         }
 
